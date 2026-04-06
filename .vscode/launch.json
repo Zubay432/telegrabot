@@ -1,0 +1,14 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "🤖 Ботту иштетүү",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/university_bot/bot.py",
+            "cwd": "${workspaceFolder}/university_bot",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        }
+    ]
+}
