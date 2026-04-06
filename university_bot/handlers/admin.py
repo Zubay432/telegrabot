@@ -34,11 +34,13 @@ async def admin_callback_handler(update: Update, context: ContextTypes.DEFAULT_T
     
     if query.data == "admin_edit_schedule":
         from .admin_edit import edit_schedule_start
-        return await edit_schedule_start(update, context)
+        await edit_schedule_start(update, context)
+        return ConversationHandler.END
     
     elif query.data == "admin_delete_group":
         from .admin_edit import admin_delete_group_start
-        return await admin_delete_group_start(update, context)
+        await admin_delete_group_start(update, context)
+        return ConversationHandler.END
     
     elif query.data == "admin_add_exam":
         async with AsyncSessionLocal() as session:
@@ -67,7 +69,8 @@ async def admin_callback_handler(update: Update, context: ContextTypes.DEFAULT_T
     
     elif query.data == "admin_back":
         from .admin_edit import admin_back
-        return await admin_back(update, context)
+        await admin_back(update, context)
+        return ConversationHandler.END
         
     elif query.data == "admin_quick_schedule":
         async with AsyncSessionLocal() as session:

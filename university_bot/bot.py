@@ -82,7 +82,10 @@ def main():
             admin_h.SET_ADD_SCHED_DAY: [CallbackQueryHandler(process_set_add_sched_day, pattern="^add_sch_day_")],
             admin_h.ADD_SINGLE_SCHED_DATA: [MessageHandler(filters.TEXT & ~filters.COMMAND, process_add_single_schedule)],
         },
-        fallbacks=[CommandHandler("cancel", cancel)],
+        fallbacks=[
+            CommandHandler("cancel", cancel),
+            CallbackQueryHandler(admin_callback_handler, pattern="^admin_")
+        ],
     )
 
     # Handlers registration
